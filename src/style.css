@@ -2,10 +2,13 @@ body {
   font-family: sans-serif;
 }
 
-.weather-app {
+.weather-app-wrapper {
   max-width: 600px;
-  margin: 0 auto;
   margin: 30px auto;
+}
+
+.weather-app {
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
@@ -30,4 +33,31 @@ li {
   color: #70757a;
   font-size: 16px;
   line-height: 20px;
+}
+img {
+  display: inline;
+  float: left;
+  height: 60px;
+  width: 60px;
+}
+p {
+  float: left;
+}
+
+strong {
+  font-weight: 400;
+  color: #202124;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -30px;
+  color: #202124;
+}
+
+.weather-overview {
+  margin-bottom: 20px;
 }
