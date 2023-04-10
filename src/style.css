@@ -56,8 +56,17 @@ strong {
   font-size: 16px;
   top: -30px;
   color: #202124;
+  text-decoration: none;
 }
 
+.active {
+  color: #202124;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}
 .weather-overview {
   margin-bottom: 20px;
 }
