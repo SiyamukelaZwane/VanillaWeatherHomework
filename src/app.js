@@ -1,6 +1,6 @@
 function search(city) {
+  //let apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
   let apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
-
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -29,7 +29,8 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class = "row">`;
@@ -79,10 +80,11 @@ function formatDate(timestamp) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  //let apiKey = "9cb245c8974a9aa2bee9c6e33954b52a";
-  //let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  //console.log(apiUrl);
-  //axios.get(apiUrl);
+  //let apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
+  let apiKey = "19d5d3c4c5243de675a5e9a9e6b22972";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -111,7 +113,7 @@ function displayTemperature(response) {
 
   getForecast(response.data.coord);
 }
-displayForecast();
+
 search("New York");
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
